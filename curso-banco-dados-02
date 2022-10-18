@@ -1,0 +1,18 @@
+Ambientes de Dados
+Criar uma hierarquia da pagina para gerenciar permissoes;
+
+/* SELECAO, PROJECAO E JUNCAO */
+
+/* PROJECAO -> É TUDO QUE VC QUER VER NA TELA */
+
+"eu quero o tipo e o numero dos clientes dessa empresa"
+SELECT TIPO, NUMERO
+FROM TELEFONE;
+
+SELECT NOW() AS DATA_ATUAL;
+
+SELECT 2 + 2 AS SOMA;
+---------------------------------------------------------------------
+Ajeitar projeto de dev web
+Ver aulas de lógica matemática
+Fazer algo da atividade de pas

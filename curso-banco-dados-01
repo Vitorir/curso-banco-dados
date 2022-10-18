@@ -1,0 +1,45 @@
+Curso-banco-dados-01
+Banco de Dados = Teoria dos Conjuntos
+CREATE TABELA CLIENTE(
+IDCLIENTE INT PRIMARY KEY AUTO_INCREMENT,
+NOME VARCHAR(30) NOT NULL,
+SEXO ENUM('M', 'F') NOT NULL,
+
+);
+
+
+/* Seleções e Projeções*/
+SELECT * FROM CLIENTE;
+
+/* FILTRANDO DADOS COM WHERE E LIKE */
+SELECT NOME, TELEFONE FROM CLIENTE;
+
+/* FILTRANDO */
+SELECT NOME, SEXO FROM CLIENTE 
+WHERE SEXO = 'M';
+
+/* Utilizando o LIKE: pesquisar */
+SELECT NOME, SEXO FROM CLIENTE
+WHERE ENDERECO LIKE 'RJ';
+
+/* CARACTER CORINGA  % -> Qualquer Coisa*/
+SELECT NOME, SEXO FROM CLIENTE
+WHERE ENDERECO LIKE '%RJ'; -- Começa com % e termina com RJ --
+
+SELECT NOME, SEXO FROM CLIENTE
+WHERE ENDERECO LIKE 'OSCAR CURY%';
+
+SELECT NOME, SEXO FROM CLIENTE
+WHERE ENDERECO LIKE '%CENTRO%';
+
+SELECT NOME, SEXO FROM CLIENTE
+WHERE ENDERECO LIKE '%_____CENTRO%';
+
+
+---------------------------------------------------------------------------
+Entendendo a Foreign Key
+-- Os relacionamentos vão depender do tipo de negócio, nas regras de negócio --
+-- Em regra, relacionamento de 1 para 1, a chave estrangeira fica na tabela mais fraca --
+-- Em relacionamento de 1 para n, a chave estrangeira fica no lado n --
+-- todo campo vetorizado vira outra tabela -- 
+
