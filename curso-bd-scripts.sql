@@ -17,7 +17,8 @@ Fase 03 - DBA ou AD
 
 /* Área de BD ->
 OLTP ----------------------------------- OLAP
-AD, DBA, Tunning(Analista de Perfomance), BI(passado), DSA(futuro) */
+AD, DBA, Tunning(Analista de Perfomance), BI(passado), DTS(futuro) */
+
 
 
 /* VERIFICANDO TABELAS */
@@ -114,7 +115,11 @@ Entendendo a Foreign Key
 -- Em regra, relacionamento de 1 para 1, a chave estrangeira fica na tabela mais fraca --
 -- Em relacionamento de 1 para n, a chave estrangeira fica no lado n --
 -- todo campo vetorizado vira outra tabela -- 
+
+CONSTRAINT fk_id_Autor FOREIGN KEY (ID_AUTOR)
+REFENCES tbl_autores(ID_AUTOR)
 -----------------------------------------------------------
+-- SUBSELECT --
 SELECT * FROM tbl_livro;
 
 UPDATE tbl_livro
