@@ -118,7 +118,7 @@ Entendendo a Foreign Key
 
 CONSTRAINT fk_id_Autor FOREIGN KEY (ID_AUTOR)
 REFENCES tbl_autores(ID_AUTOR)
------------------------------------------------------------
+---------------------------------------------------------------------
 -- SUBSELECT --
 SELECT * FROM tbl_livro;
 
