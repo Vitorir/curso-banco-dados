@@ -32,10 +32,8 @@ CREATE TABLE CLIENTE (
 	IdCliente int primary key AUTO_INCREMENT,
 	Nome varchar(30) not null,
 	Sexo enum('M', 'F') not null,
-	CPF INT(11),
-	email varchar(30),
-	Telefone varchar(30),
-	Endereco varchar(100)
+	email varchar(50),
+	CPF VARCHAR(15)
 );
 
 CREATE TABLE CLIENTE (
@@ -111,8 +109,11 @@ WHERE ENDERECO LIKE '%_____CENTRO%';
 
 ---------------------------------------------------------------------------
 Entendendo a Foreign Key
+/* Chave Estrangeira é a chave primária de uma tabela que vai a outra
+ fazer referência entre registros */
 -- Os relacionamentos vão depender do tipo de negócio, nas regras de negócio --
--- Em regra, relacionamento de 1 para 1, a chave estrangeira fica na tabela mais fraca --
+/* Em regra, relacionamento de 1 para 1, a chave estrangeira fica 
+na tabela mais fraca */
 -- Em relacionamento de 1 para n, a chave estrangeira fica no lado n --
 -- todo campo vetorizado vira outra tabela -- 
 
@@ -128,3 +129,30 @@ WHERE idEditora =
 	(SELECT idEditora
 	FROM tbl_editora
 	WHERE NomeEditora = 'Microsoft Press');
+
+
+--------------- INSERTS ------------------
+/*
+show databases;
+use -database-;
+show tables;
+DESC tabela;
+
+ */
+INSERT INTO CLIENTE 
+VALUES(NULL,'JOAO', 'M', 'joao@gmail.com', '5487984846984');
+
+INSERT INTO CLIENTE 
+VALUES(NULL,'CARLOS', 'M', 'CARLOS@gmail.com', '5487984846984');
+
+INSERT INTO CLIENTE 
+VALUES(NULL,'ANA', 'F', 'ANA@gmail.com', '5487984846984');
+
+INSERT INTO CLIENTE 
+VALUES(NULL,'CLARA', 'F', NULL, '5487984846984');
+
+INSERT INTO CLIENTE 
+VALUES(NULL,'JORGE', 'M', 'JORGE@gmail.com', '5487984846984');
+
+INSERT INTO CLIENTE 
+VALUES(NULL,'CELIA', 'F', 'CELIA@gmail.com', '5487984846984');
