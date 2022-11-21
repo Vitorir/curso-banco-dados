@@ -8,24 +8,27 @@ select * from historico;
 drop table bem;
 
 create table usuario (
-id_usuario int not null primary key auto_increment,
+idUsuario int not null primary key auto_increment,
 nome varchar(45) not null,
-percentualBem decimal(3,2) not null,
-valorPatrimonial decimal(10,2) not null
+percentualBem decimal(10,2),
+valorPatrimonial decimal(10,2) 
 );
 
 
 create table bem (
-id_bem int not null primary key auto_increment,
-id_usuario int not null,
+idBem int not null primary key auto_increment,
+idUsuario int,
 nomeBem varchar(45) not null,
 dataCompra date,
-valor varchar(20),
+valor decimal(10, 2),
 tipoBem varchar(45),
-desgaste enum('V', 'F'), 
-dataValidade enum('V', 'F'),
+desgaste enum('V', 'F'),
+dataValidade date,
 valorSentimental varchar(45)
 );
+
+alter table bem
+add column taxaValorizacao decimal(10, 2) after desgaste;
 
 create table bem_has_usuario (
   bem_idBem int not null,
@@ -44,20 +47,15 @@ create table bem_has_usuario (
 );
 
 create table historico (
-id_historico int not null primary key auto_increment,
-id_bem int not null,
+idHistorico int not null primary key auto_increment,
+idBem int,
 nomeBem varchar(45) not null,
 dataEspecifica date not null,
 valor decimal(10,2)not null
 );
 
-alter table bem 
-add constraint fk_id_usuario 
-foreign key(id_usuario)
-references usuario (id_usuario);
-
 
 alter table historico 
 add constraint fk_id_bem 
 foreign key (id_bem)
-references bem (id_bem);
+references bem (idBem);
