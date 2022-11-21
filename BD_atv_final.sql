@@ -54,6 +54,11 @@ dataEspecifica date not null,
 valor decimal(10,2)not null
 );
 
+alter table bem 
+add constraint fk_id_usuario 
+foreign key(id_usuario)
+references usuario (id_usuario);
+
 
 alter table historico 
 add constraint fk_id_bem 
