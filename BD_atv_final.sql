@@ -17,7 +17,6 @@ valorPatrimonial decimal(10,2)
 
 create table bem (
 idBem int not null primary key auto_increment,
-idUsuario int,
 nomeBem varchar(45) not null,
 dataCompra date,
 valor decimal(10, 2),
@@ -56,11 +55,11 @@ valor decimal(10,2)not null
 
 alter table bem 
 add constraint fk_id_usuario 
-foreign key(id_usuario)
-references usuario (id_usuario);
+foreign key(idUsuario)
+references usuario (idUsuario);
 
 
 alter table historico 
 add constraint fk_id_bem 
-foreign key (id_bem)
+foreign key (idBem)
 references bem (idBem);
