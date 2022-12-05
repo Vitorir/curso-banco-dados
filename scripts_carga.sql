@@ -15,7 +15,6 @@ alter table bem
 modify column valor decimal(10,2);
 
 -- o que fazer se valoriza -- 
-
 INSERT INTO bem 
 VALUES
 (DEFAULT, 1, 'Apartamento', '2020-07-17', 200000.00, 
