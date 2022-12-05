@@ -1,5 +1,3 @@
-Scripts de Seleção
-
 Select idBem, nomeBem, dataCompra, valor
 from bem
 order by nomeBem desc;
@@ -8,31 +6,51 @@ Select * from bem
 where nomeBem = 'Apartamento'
 and taxaValorizacao is null;
 
--- 1 OK--
-1. Select * 
+-- 1 --
+Select * 
 from bem
 where valor is null and valorSentimental is null
 order by nomeBem;
 
 -- 2 --
-/* 2 subselects, 2 joins, um para cada data(2021 e 2020) */
-2. Select b.valor, 
+Select b.valor
 from Bem
-where year(dataCompra) >= year(dataCompra) - 2);
+where YEAR(dataCompra) >= YEAR(dataCompra) - 2;
 
-2b. Select b.valor, 
-from Bem
-where dataCompra BETWEEN ;
+-- 2b --
+select *
+from usuario
+JOIN Bem ON(usuario.idUsuario = bem.usuario.idUsuario)
+JOIN historico ON(bem.idbem = historico.bem.idbem)
+where YEAR(dataCompra) = (select year(datacompra)
+from historico
+where YEAR(dataCompra)
+);
 
-select year(dataCompra) as ano
-from bem;
+Bem       Valor    31/12/2020    31/12/2021
+Notebook   100        200             400
+
+Id Bem, Desc, valor
+
+left join
+concatenar(concat) year now com 31/12 com -1
+concatenar(concat) year now com 31/12 com -1
+
+Hist1, valor1, data1 = 31/12/(ano-1)
+Hist2, valor2, data2 = 31/12/(ano-2)
+
+desc historico;
 
 -- 3 --
-3. Select u.id, u.nome, b.id, b.nome, b.valor_sentimental
-from usuarios as u JOIN bens as b();
+Select u.idusuario as 'id do usuario', u.nome as 'nome usuario', b.idbem as 'id do bem', b.nomebem as 'nome do bem', c.valorsentimental as 'valor sentimental do bem'
+from usuario as u JOIN bem as b on(u.idusuario = b.idusuario )
+join bem_has_usuario  as c on(c.bem_idbem = b.idbem);
 
 -- 4 --
-4. Select u.valor_patrimonial, u.evolucao_patrimonial
+Select u.valor_patrimonial, u.evolucao_patrimonial
 from usuarios as u JOIN bens as b ()
 JOIN historico as h ()
 where h.data
+
+valor total atual de cada bem de cada usuario(JOIN)
+e esse valor total menos o valor total no ano anterior do historico

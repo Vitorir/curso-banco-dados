@@ -1,14 +1,14 @@
 -- Scripts de Carga --
 INSERT INTO usuario
-VALUES(DEFAULT, 'Vitor', 50.00, 100000.00);
+VALUES(DEFAULT, 'Vitor', 100000.00);
 INSERT INTO usuario
-VALUES(DEFAULT, 'Lucas', 25.00, 50000.00);
+VALUES(DEFAULT, 'Lucas', 50000.00);
 INSERT INTO usuario
-VALUES(DEFAULT, 'Giorgi', 25.00, 50000.00);
+VALUES(DEFAULT, 'Giorgi', 50000.00);
 INSERT INTO usuario
-VALUES(DEFAULT, 'Alan', 66.66, 125000.00);
+VALUES(DEFAULT, 'Alan', 125000.00);
 INSERT INTO usuario
-VALUES(DEFAULT, 'Fulano', 33.33, 150000.00);
+VALUES(DEFAULT, 'Fulano', 150000.00);
 
 
 alter table bem
@@ -18,17 +18,17 @@ modify column valor decimal(10,2);
 INSERT INTO bem 
 VALUES
 (DEFAULT, 1, 'Apartamento', '2020-07-17', 200000.00, 
-	'Imovel', 'F', 15.00, NULL, 'Importante');
+	'Imovel', 'V', NULL, 15.00);
 
 INSERT INTO bem
 VALUES
 (DEFAULT, 2, 'Carro', '2017-03-15', 65000.00, 
-	'Automovel', 'V', 20.00, NULL,  'Razoavelmente-Importante');
+	'Automovel', 'V', NULL, 20.00);
 
 INSERT INTO bem
 VALUES
-(DEFAULT, 1, 'Amuleto', '2002-01-05', NULL,
-	'Bijuteria', 'V', NULL, NULL,  NULL);
+(DEFAULT, NULL, 'Amuleto', '2002-01-05', NULL,
+	'Bijuteria', 'V', NULL, NULL);
 
 
 INSERT into historico
