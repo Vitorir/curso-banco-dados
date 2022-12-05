@@ -14,7 +14,6 @@ percentualBem decimal(10,2),
 valorPatrimonial decimal(10,2) 
 );
 
-
 create table bem (
 idBem int not null primary key auto_increment,
 nomeBem varchar(45) not null,
