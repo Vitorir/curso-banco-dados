@@ -44,7 +44,6 @@ create table bem_has_usuario (
 );
 
 
-
 alter table bem_has_usuario
   add constraint fk_bem_has_usuario
     foreign key(bem_idBem)
@@ -56,7 +55,7 @@ alter table bem_has_usuario
 
 create table historico (
 idHistorico int not null primary key auto_increment,
-idBem int,
+idBem int not null,
 nomeBem varchar(45) not null,
 dataEspecifica date not null,
 valor decimal(10,2) not null
