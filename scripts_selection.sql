@@ -56,10 +56,11 @@ from usuario as u join bem_has_usuario as c on(u.idUsuario = c.usuario_idUsuario
 JOIN bem as b on(b.idBem = c.bem_idBem);
 
 -- 4 --
-Select u.valor_patrimonial, u.evolucao_patrimonial
-from usuario as u JOIN bens as b ()
-JOIN historico as h ()
-where h.data;
+Select *
+from usuario as u 
+LEFT JOIN bem as b ON (u.idUsuario = b.idUsuario)
+LEFT JOIN historico as h ON (b.idBem = h.idBem)
+;
 
 /*valor total atual de cada bem de cada usuario(JOIN)
 e esse valor total menos o valor total no ano anterior do historico */
