@@ -36,6 +36,8 @@ WHERE year(h.dataEspecifica) = year(dataCompra) - 1 and
 year(h2.dataEspecifica) = year(dataCompra) - 2
 ;
 
+
+
 Bem       Valor    31/12/2020    31/12/2021
 Notebook   100        200             400
 
@@ -58,9 +60,14 @@ JOIN bem as b on(b.idBem = c.bem_idBem);
 -- 4 --
 Select *
 from usuario as u 
-LEFT JOIN bem as b ON (u.idUsuario = b.idUsuario)
-LEFT JOIN historico as h ON (b.idBem = h.idBem)
+LEFT JOIN bem_has_usuario as b ON (u.idUsuario = b.usuario_idUsuario)
 ;
+
+-- 4b --
+Select idUsuario, nome, sum(totalInvestido) - valorPatrimonial as 'evolucao patrimonial'
+from usuario as u 
+LEFT JOIN bem_has_usuario as b ON (u.idUsuario = b.usuario_idUsuario)
+group by idUsuario;
 
 /*valor total atual de cada bem de cada usuario(JOIN)
 e esse valor total menos o valor total no ano anterior do historico */
