@@ -28,10 +28,12 @@ FROM bem as b
 JOIN historico as h 
 ON(b.idBem = h.idBem);
 
-SELECT *
+SELECT h.nomeBem, h.dataEspecifica, h.valor, h2.dataEspecifica, h2.valor
 FROM bem as b
-JOIN historico as h ON (b.idBem = h.idBem)
-WHERE year(dataEspecifica) = year(dataCompra) - 1
+LEFT JOIN historico as h ON (b.idBem = h.idBem)
+LEFT JOIN historico as h2 ON (b.idBem = h.idBem)
+WHERE year(h.dataEspecifica) = year(dataCompra) - 1 and
+year(h2.dataEspecifica) = year(dataCompra) - 2
 ;
 
 Bem       Valor    31/12/2020    31/12/2021
